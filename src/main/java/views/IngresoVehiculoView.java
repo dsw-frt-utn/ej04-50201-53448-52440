@@ -10,7 +10,7 @@ import domain.Sucursal;
 import domain.VehiculoCombustible;
 import domain.VehiculoElectrico;
 import javax.swing.JOptionPane;
-import views.MenuVIew;
+import views.MenuView;
 
 /**
  *
@@ -382,7 +382,7 @@ public void cargarBox() {
         // TODO add your handling code here:// Cerramos la ventana actual
     this.dispose();
     
-    MenuVIew menu = new MenuVIew();
+    MenuView menu = new MenuView();
     menu.setLocationRelativeTo(null); // Para que aparezca centrado
     menu.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

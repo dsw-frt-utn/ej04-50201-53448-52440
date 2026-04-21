@@ -8,44 +8,47 @@ public class Persistencia {
     private static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
     private static ArrayList<Responsable> responsables = new ArrayList<>();
     private static ArrayList<Sucursal> sucursales = new ArrayList<>();
+    private static ArrayList<Marca> marcas = new ArrayList<>();
     
     private static void inicializarResponsables(){
         Responsable r1 = new Responsable("Carlos Gómez", "25444111", "3815551111");
         Responsable r2 = new Responsable("Laura Pérez", "30111222", "3815552222");
+        // ¡IMPORTANTE! Hay que agregarlos a la lista
         responsables.add(r1);
         responsables.add(r2);
     }
     
     private static void inicializarSucursales(){
+        // Ahora get(0) y get(1) no van a fallar porque ya agregamos los responsables antes
         Sucursal s1 = new Sucursal("SUC01", "Av. Belgrano 1200", "Tucumán", responsables.get(0));
         Sucursal s2 = new Sucursal("SUC02", "San Martín 450", "Yerba Buena", responsables.get(1));
         
+        // ¡IMPORTANTE! También hay que agregar las sucursales
         sucursales.add(s1);
         sucursales.add(s2);
     }
-    
-    private static void inicializarVehiculos(){
-        Sucursal s1 = sucursales.get(0);
-        Sucursal s2 = sucursales.get(1);
-        Marca Renault = new Marca("Renault","Francia");
-        Marca Ford = new Marca("ford","Estados Unidos");
-        Marca Iveco = new Marca("Iveco","Italia");
-        Marca Mercedes = new Marca("Mercedes","Aleman");
-        
-        VehiculoElectrico v1 = new VehiculoElectrico("AE123FG", Renault, "Kangoo E-Tech", 2020, 1000, s1, 16);
-        VehiculoElectrico v2 = new VehiculoElectrico("AF456HI", Ford, "E-Transit", 2021, 1300, s2, 16);
 
-        VehiculoCombustible v3 = new VehiculoCombustible("AC789JK", Iveco, "Daily", 2023, 1200, s1, 8, 1.5);
-        VehiculoCombustible v4 = new VehiculoCombustible("AD321LM", Mercedes, "Sprinter", 2020, 1200, s2, 7, 1);
-        
-        vehiculos.add(v1);
-        vehiculos.add(v2);
-        vehiculos.add(v3);
-        vehiculos.add(v4);
+    private static void inicializarMarcas() {
+        marcas.add(new Marca("Renault", "Francia"));
+        marcas.add(new Marca("Ford", "Estados Unidos"));
+        marcas.add(new Marca("Iveco", "Italia"));
+        marcas.add(new Marca("Mercedes", "Alemania"));
+    }
+
+    private static void inicializarVehiculos(){
+        // Vacío para que vos cargues desde la ventana
     }
     
     public static ArrayList<Vehiculo> getVehiculos(){
         return vehiculos;
+    }
+
+    public static ArrayList<Sucursal> getSucursales() {
+        return sucursales;
+    }
+
+    public static ArrayList<Marca> getMarcas() {
+        return marcas;
     }
     
     public static Optional<Vehiculo> getVehiculo(String patente){
@@ -55,8 +58,10 @@ public class Persistencia {
     }
     
     public static void inicializar(){
-        inicializarResponsables();
-        inicializarSucursales();
-        inicializarVehiculos();
+        // EL ORDEN ES CLAVE:
+        inicializarResponsables(); // 1. Llenamos responsables
+        inicializarSucursales();   // 2. Usamos esos responsables para las sucursales
+        inicializarMarcas();       // 3. Llenamos marcas para los combos
+        inicializarVehiculos();    // 4. Lista de vehículos vacía
     }
 }
