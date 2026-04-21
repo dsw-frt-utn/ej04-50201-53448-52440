@@ -4,19 +4,26 @@
  */
 package views;
 
+import data.Persistencia;
+import domain.Marca;
+import domain.Sucursal;
+import domain.VehiculoCombustible;
+import domain.VehiculoElectrico;
+import javax.swing.JOptionPane;
+import views.MenuVIew;
+
 /**
  *
- * @author pc
+ * @author Aldana
  */
 public class IngresoVehiculoView extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(IngresoVehiculoView.class.getName());
 
     /**
      * Creates new form IngresoVehiculoView
      */
     public IngresoVehiculoView() {
         initComponents();
+        cargarBox();
     }
 
     /**
@@ -28,21 +35,393 @@ public class IngresoVehiculoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtPatente = new javax.swing.JTextField();
+        boxMarca = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        cbTipo = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        boxSucursal = new javax.swing.JComboBox<>();
+        txtModelo = new javax.swing.JTextField();
+        txtAnio = new javax.swing.JTextField();
+        txtKwhBase = new javax.swing.JTextField();
+        txtLitrosExtra = new javax.swing.JTextField();
+        txtKmPorLitro = new javax.swing.JTextField();
+        txtCapacidad = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtKmARecorrer = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Patente");
+
+        jLabel3.setText("Marca");
+
+        jLabel4.setText("Modelo");
+
+        jLabel5.setText("Año");
+
+        jLabel6.setText("Capac. de Carga");
+
+        jLabel7.setText("Sucursal");
+
+        jLabel8.setText("KWH");
+
+        jLabel9.setText("Litros/extra");
+
+        jLabel10.setText("Km/Litro");
+
+        txtPatente.setToolTipText("");
+        txtPatente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatenteActionPerformed(evt);
+            }
+        });
+
+        boxMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxMarcaActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Tipo");
+
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ELECTRICO", "COMBUSTIBLE" }));
+        cbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Añadir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        boxSucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxSucursalActionPerformed(evt);
+            }
+        });
+
+        txtModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModeloActionPerformed(evt);
+            }
+        });
+
+        txtAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnioActionPerformed(evt);
+            }
+        });
+
+        txtKwhBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKwhBaseActionPerformed(evt);
+            }
+        });
+
+        txtLitrosExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLitrosExtraActionPerformed(evt);
+            }
+        });
+
+        txtKmPorLitro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKmPorLitroActionPerformed(evt);
+            }
+        });
+
+        txtCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCapacidadActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Kilometros");
+
+        txtKmARecorrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKmARecorrerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(boxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(boxSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtKmARecorrer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtKmPorLitro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtLitrosExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel8))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtKwhBase, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8)
+                    .addComponent(boxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKwhBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLitrosExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtKmPorLitro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(boxSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(txtKmARecorrer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatenteActionPerformed
+public void cargarBox() {
+        // 1. Cargamos las Sucursales
+        javax.swing.DefaultComboBoxModel modeloSucursal = (javax.swing.DefaultComboBoxModel) this.boxSucursal.getModel();
+        modeloSucursal.removeAllElements(); 
+        for (domain.Sucursal s : data.Persistencia.getSucursales()) {
+            modeloSucursal.addElement(s.getCodigo() + " - " + s.getDireccion());
+        }
+
+        // 2. Cargamos las Marcas
+        javax.swing.DefaultComboBoxModel modeloMarca = (javax.swing.DefaultComboBoxModel) this.boxMarca.getModel();
+        modeloMarca.removeAllElements();
+        for (domain.Marca m : data.Persistencia.getMarcas()) {
+            modeloMarca.addElement(m.getNombre());
+        }
+
+        // 3. Cargamos los Tipos (Fijate que tu combo se llama cbTipo, no boxTipo)
+        javax.swing.DefaultComboBoxModel modeloTipo = (javax.swing.DefaultComboBoxModel) this.cbTipo.getModel();
+        modeloTipo.removeAllElements();
+        modeloTipo.addElement("ELECTRICO");
+        modeloTipo.addElement("COMBUSTIBLE");
+    } 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+        // 1. Datos básicos de texto y números
+        String patente = txtPatente.getText();
+        String modelo = txtModelo.getText();
+        int anio = Integer.parseInt(txtAnio.getText());
+        double capacidad = Double.parseDouble(txtCapacidad.getText());
+        // No te olvides de los Km a Recorrer que agregamos antes!
+        double km = Double.parseDouble(txtKmARecorrer.getText()); 
+        
+        // 2. SELECCIÓN DE MARCA (En lugar de crear una nueva, la elegimos)
+        // Obtenemos la marca de la lista de Persistencia según el índice del combo
+        int indiceMarca = boxMarca.getSelectedIndex();
+        Marca marcaElegida = Persistencia.getMarcas().get(indiceMarca);
+        
+        // 3. SELECCIÓN DE SUCURSAL
+        // Hacemos lo mismo: le pedimos a la Persistencia la sucursal que coincide con el combo
+        int indiceSucursal = boxSucursal.getSelectedIndex();
+        Sucursal sucursalElegida = Persistencia.getSucursales().get(indiceSucursal);
+        
+        // 4. Lógica de creación según el tipo
+        if (cbTipo.getSelectedItem().toString().equals("ELECTRICO")) {
+            double kwh = Double.parseDouble(txtKwhBase.getText());
+            // Pasamos la marca y sucursal seleccionadas, más los km
+            VehiculoElectrico nuevoVE = new VehiculoElectrico(patente, marcaElegida, modelo, anio, capacidad, sucursalElegida, kwh, km);
+            Persistencia.getVehiculos().add(nuevoVE);
+        } else {
+            double kmL = Double.parseDouble(txtKmPorLitro.getText());
+            double extra = Double.parseDouble(txtLitrosExtra.getText());
+            // Pasamos la marca y sucursal seleccionadas, más los km
+            VehiculoCombustible nuevoVC = new VehiculoCombustible(patente, marcaElegida, modelo, anio, capacidad, sucursalElegida, kmL, extra, km);
+            Persistencia.getVehiculos().add(nuevoVC);
+        }
+        
+        JOptionPane.showMessageDialog(this, "Vehículo registrado con éxito!");
+
+        
+        
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Error: Verificá que los campos numéricos sean correctos.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoActionPerformed
+    if (cbTipo.getSelectedItem() == null) {
+        return; // Si es null, salimos del método y no hacemos nada
+    }
+
+    String seleccion = cbTipo.getSelectedItem().toString();
+    
+    if (seleccion.equals("ELECTRICO")) {
+        txtKwhBase.setEnabled(true);
+        txtKmPorLitro.setEnabled(false);
+        txtLitrosExtra.setEnabled(false);
+        txtKmPorLitro.setText(""); 
+    } else {
+        txtKwhBase.setEnabled(false);
+        txtKwhBase.setText("");
+        txtKmPorLitro.setEnabled(true);
+        txtLitrosExtra.setEnabled(true);
+    }
+    }//GEN-LAST:event_cbTipoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:// Cerramos la ventana actual
+    this.dispose();
+    
+    MenuVIew menu = new MenuVIew();
+    menu.setLocationRelativeTo(null); // Para que aparezca centrado
+    menu.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void boxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxMarcaActionPerformed
+
+    private void txtKwhBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKwhBaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKwhBaseActionPerformed
+
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloActionPerformed
+
+    private void txtLitrosExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLitrosExtraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLitrosExtraActionPerformed
+
+    private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnioActionPerformed
+
+    private void txtKmPorLitroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKmPorLitroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKmPorLitroActionPerformed
+
+    private void txtCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCapacidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCapacidadActionPerformed
+
+    private void txtKmARecorrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKmARecorrerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKmARecorrerActionPerformed
+
+    private void boxSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxSucursalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxSucursalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -60,15 +439,51 @@ public class IngresoVehiculoView extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(IngresoVehiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(IngresoVehiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(IngresoVehiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(IngresoVehiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new IngresoVehiculoView().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new IngresoVehiculoView().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxMarca;
+    private javax.swing.JComboBox<String> boxSucursal;
+    private javax.swing.JComboBox<String> cbTipo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtCapacidad;
+    private javax.swing.JTextField txtKmARecorrer;
+    private javax.swing.JTextField txtKmPorLitro;
+    private javax.swing.JTextField txtKwhBase;
+    private javax.swing.JTextField txtLitrosExtra;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPatente;
     // End of variables declaration//GEN-END:variables
 }
